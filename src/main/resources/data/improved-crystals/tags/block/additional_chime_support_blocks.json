@@ -1,0 +1,18 @@
+{
+  "replace": true,
+  "values": [
+    "minecraft:honey_block",
+    "#minecraft:fences",
+    "#minecraft:walls",
+    "minecraft:dried_ghast",
+    "minecraft:chest",
+    "minecraft:ender_chest",
+    "minecraft:trapped_chest",
+    "#minecraft:bars",
+    "#minecraft:copper_chests",
+    "#minecraft:lightning_rods",
+    "minecraft:sniffer_egg",
+    "#minecraft:flower_pots",
+    "minecraft:flower_pot"
+  ]
+}

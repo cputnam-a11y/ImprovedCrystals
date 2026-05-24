@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "improved-crystals:polished_amethyst",
+  "result": {
+    "id": "improved-crystals:chiseled_polished_amethyst"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "improved-crystals:polished_prismarine_crystals"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "requirements": [
+      [
+        "has_item"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "improved-crystals:polished_prismarine_crystal_stairs",
+        "improved-crystals:polished_prismarine_crystal_stairs_from_stonecutter_from_prismarine",
+        "improved-crystals:polished_prismarine_crystal_stairs_from_stonecutter_from_polished"
+      ]
+    }
+  }
+}

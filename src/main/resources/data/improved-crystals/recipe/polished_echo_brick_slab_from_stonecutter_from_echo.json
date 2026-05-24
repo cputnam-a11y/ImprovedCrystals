@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "improved-crystals:echo_block",
+  "result": {
+    "count": 2,
+    "id": "improved-crystals:polished_echo_brick_slab"
+  }
+}

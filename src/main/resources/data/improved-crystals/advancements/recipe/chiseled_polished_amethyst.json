@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "improved-crystals:polished_amethyst_slab"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "requirements": [
+      [
+        "has_item"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "improved-crystals:chiseled_polished_amethyst",
+        "improved-crystals:chiseled_polished_amethyst_from_stonecutter_from_amethyst",
+        "improved-crystals:chiseled_polished_amethyst_from_stonecutter_from_polished"
+      ]
+    }
+  }
+}

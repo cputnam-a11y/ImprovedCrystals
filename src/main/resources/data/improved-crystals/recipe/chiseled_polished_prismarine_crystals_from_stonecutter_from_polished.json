@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "improved-crystals:polished_prismarine_crystals",
+  "result": {
+    "id": "improved-crystals:chiseled_polished_prismarine_crystals"
+  }
+}

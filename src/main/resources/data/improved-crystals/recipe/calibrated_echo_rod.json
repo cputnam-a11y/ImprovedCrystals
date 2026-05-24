@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#W#",
+    " o ",
+    "#W#"
+  ],
+  "key": {
+    "#": "minecraft:copper_ingot",
+    "W": "#minecraft:wool",
+    "o": "improved-crystals:echo_rod"
+  },
+  "result": {
+    "id": "improved-crystals:calibrated_echo_rod",
+    "count": 1
+  }
+}

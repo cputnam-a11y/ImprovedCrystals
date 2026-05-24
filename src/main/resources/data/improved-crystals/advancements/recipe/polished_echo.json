@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "improved-crystals:echo_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "requirements": [
+      [
+        "has_item"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "improved-crystals:polished_echo",
+        "improved-crystals:polished_echo_from_stonecutter"
+      ]
+    }
+  }
+}

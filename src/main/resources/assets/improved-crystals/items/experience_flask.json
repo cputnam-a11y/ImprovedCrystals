@@ -1,0 +1,14 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "property": "minecraft:damaged",
+    "on_true": {
+      "type": "minecraft:model",
+      "model": "improved-crystals:item/experience_flask"
+    },
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "improved-crystals:item/experience_flask_full"
+    }
+  }
+}

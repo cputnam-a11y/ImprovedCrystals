@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "improved-crystals:smooth_prismarine_crystal_slab"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "requirements": [
+      [
+        "has_item"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "improved-crystals:chiseled_smooth_prismarine_crystals",
+        "improved-crystals:chiseled_smooth_prismarine_crystals_from_stonecutter"
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "improved-crystals:polished_echo",
+  "result": {
+    "id": "improved-crystals:chiseled_polished_echo"
+  }
+}

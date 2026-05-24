@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:prismarine",
+  "result": {
+    "count": 1,
+    "id": "improved-crystals:prismarine_brick_wall"
+  }
+}

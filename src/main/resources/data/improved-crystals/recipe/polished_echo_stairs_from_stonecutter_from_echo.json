@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "improved-crystals:echo_block",
+  "result": {
+    "count": 1,
+    "id": "improved-crystals:polished_echo_stairs"
+  }
+}

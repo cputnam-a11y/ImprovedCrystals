@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#improved-crystals:echo_blocks",
+    "#improved-crystals:amethyst_blocks",
+    "#improved-crystals:prismarine_crystal_blocks"
+  ]
+}

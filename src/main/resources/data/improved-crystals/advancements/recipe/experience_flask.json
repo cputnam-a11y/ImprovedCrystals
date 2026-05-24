@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "get_experience": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "type_specific": {
+            "type": "minecraft:player",
+            "level": 10
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "get_experience"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "improved-crystals:experience_flask"
+    ]
+  }
+}

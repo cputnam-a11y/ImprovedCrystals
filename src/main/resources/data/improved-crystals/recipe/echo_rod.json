@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": "minecraft:echo_shard"
+  },
+  "result": {
+    "id": "improved-crystals:echo_rod"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": "improved-crystals:polished_prismarine_crystal_bricks"
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "id": "improved-crystals:polished_prismarine_crystal_brick_slab"
+  }
+}

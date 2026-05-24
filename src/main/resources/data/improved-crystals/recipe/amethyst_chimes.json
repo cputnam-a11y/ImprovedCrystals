@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "###",
+    "ooo"
+  ],
+  "key": {
+    "#": "minecraft:copper_ingot",
+    "o": "minecraft:amethyst_shard"
+  },
+  "result": {
+    "id": "improved-crystals:amethyst_chimes"
+  }
+}

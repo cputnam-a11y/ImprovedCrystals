@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "improved-crystals:sound_wave",
+    "improved-crystals:sound_burst",
+    "improved-crystals:booming",
+    "improved-crystals:recharge",
+    "improved-crystals:flaming_breath",
+    "improved-crystals:potion_breath",
+    "improved-crystals:exhale"
+  ]
+}

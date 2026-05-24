@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "improved-crystals:block/polished_echo",
+    "side": "improved-crystals:block/polished_echo",
+    "top": "improved-crystals:block/polished_echo"
+  }
+}

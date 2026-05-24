@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "improved-crystals:block/small_echo_bud"
+  }
+}

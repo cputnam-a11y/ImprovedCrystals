@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "improved-crystals:block/polished_echo_bricks"
+  }
+}

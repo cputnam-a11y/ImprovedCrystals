@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "improved-crystals:block/sea_wall_torch"
+    },
+    "facing=north": {
+      "model": "improved-crystals:block/sea_wall_torch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "improved-crystals:block/sea_wall_torch",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "improved-crystals:block/sea_wall_torch",
+      "y": 180
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "misc",
+  "input": "improved-crystals:resonating_echo_shard",
+  "material": "minecraft:echo_shard",
+  "result": {
+    "id": "improved-crystals:resonating_echo_shard",
+    "count": 2
+  }
+}

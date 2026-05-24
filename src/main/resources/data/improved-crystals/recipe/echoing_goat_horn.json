@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#G#",
+    " # "
+  ],
+  "key": {
+    "#": "improved-crystals:resonating_echo_shard",
+    "G": "minecraft:goat_horn"
+  },
+  "result": {
+    "id": "improved-crystals:echoing_goat_horn"
+  }
+}

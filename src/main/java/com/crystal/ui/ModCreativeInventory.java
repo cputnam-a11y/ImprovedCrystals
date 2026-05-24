@@ -1,0 +1,116 @@
+package com.crystal.ui;
+
+import com.crystal.ImprovedCrystals;
+import com.crystal.block.ModBlocks;
+import com.crystal.item.ModItems;
+import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackLinkedSet;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.SuspiciousEffectHolder;
+
+import java.util.List;
+import java.util.Set;
+
+public class ModCreativeInventory {
+    public static final ResourceKey<CreativeModeTab> IMPROVED_CRYSTALS_TAB_KEY = ResourceKey.create(
+            BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(ImprovedCrystals.MOD_ID, "creative_tab")
+    );
+    public static final CreativeModeTab IMPROVED_CRYSTALS_TAB = FabricCreativeModeTab.builder()
+            .icon(() -> new ItemStack(ModBlocks.ECHO_BLOCK))
+            .title(Component.translatable("itemGroup.improved_crystals"))
+            .displayItems((params, output) -> {
+                output.accept(ModBlocks.POLISHED_AMETHYST);
+                output.accept(ModBlocks.POLISHED_AMETHYST_SLAB);
+                output.accept(ModBlocks.POLISHED_AMETHYST_STAIRS);
+                output.accept(ModBlocks.POLISHED_AMETHYST_WALL);
+                output.accept(ModBlocks.POLISHED_AMETHYST_BRICKS);
+                output.accept(ModBlocks.POLISHED_AMETHYST_BRICK_SLAB);
+                output.accept(ModBlocks.POLISHED_AMETHYST_BRICK_STAIRS);
+                output.accept(ModBlocks.POLISHED_AMETHYST_BRICK_WALL);
+                output.accept(ModBlocks.CHISELED_POLISHED_AMETHYST);
+                output.accept(ModBlocks.SMOOTH_AMETHYST);
+                output.accept(ModBlocks.SMOOTH_AMETHYST_SLAB);
+                output.accept(ModBlocks.SMOOTH_AMETHYST_STAIRS);
+                output.accept(ModBlocks.SMOOTH_AMETHYST_WALL);
+                output.accept(ModBlocks.SMOOTH_AMETHYST_BRICKS);
+                output.accept(ModBlocks.SMOOTH_AMETHYST_BRICK_SLAB);
+                output.accept(ModBlocks.SMOOTH_AMETHYST_BRICK_STAIRS);
+                output.accept(ModBlocks.SMOOTH_AMETHYST_BRICK_WALL);
+                output.accept(ModBlocks.CHISELED_SMOOTH_AMETHYST);
+                output.accept(ModBlocks.AMETHYST_CHIMES);
+                output.accept(ModBlocks.BUDDING_PRISMARINE);
+                output.accept(ModBlocks.SMALL_PRISMARINE_CRYSTAL_BUD);
+                output.accept(ModBlocks.MEDIUM_PRISMARINE_CRYSTAL_BUD);
+                output.accept(ModBlocks.LARGE_PRISMARINE_CRYSTAL_BUD);
+                output.accept(ModBlocks.PRISMARINE_CRYSTAL_CLUSTER);
+                output.accept(ModBlocks.PRISMARINE_CRYSTAL_BLOCK);
+                output.accept(ModBlocks.POLISHED_PRISMARINE_CRYSTALS);
+                output.accept(ModBlocks.POLISHED_PRISMARINE_CRYSTAL_SLAB);
+                output.accept(ModBlocks.POLISHED_PRISMARINE_CRYSTAL_STAIRS);
+                output.accept(ModBlocks.POLISHED_PRISMARINE_CRYSTAL_WALL);
+                output.accept(ModBlocks.POLISHED_PRISMARINE_CRYSTAL_BRICKS);
+                output.accept(ModBlocks.POLISHED_PRISMARINE_CRYSTAL_BRICK_SLAB);
+                output.accept(ModBlocks.POLISHED_PRISMARINE_CRYSTAL_BRICK_STAIRS);
+                output.accept(ModBlocks.POLISHED_PRISMARINE_CRYSTAL_BRICK_WALL);
+                output.accept(ModBlocks.CHISELED_POLISHED_PRISMARINE_CRYSTALS);
+                output.accept(ModBlocks.SMOOTH_PRISMARINE_CRYSTALS);
+                output.accept(ModBlocks.SMOOTH_PRISMARINE_CRYSTAL_SLAB);
+                output.accept(ModBlocks.SMOOTH_PRISMARINE_CRYSTAL_STAIRS);
+                output.accept(ModBlocks.SMOOTH_PRISMARINE_CRYSTAL_WALL);
+                output.accept(ModBlocks.SMOOTH_PRISMARINE_CRYSTAL_BRICKS);
+                output.accept(ModBlocks.SMOOTH_PRISMARINE_CRYSTAL_BRICK_SLAB);
+                output.accept(ModBlocks.SMOOTH_PRISMARINE_CRYSTAL_BRICK_STAIRS);
+                output.accept(ModBlocks.SMOOTH_PRISMARINE_CRYSTAL_BRICK_WALL);
+                output.accept(ModBlocks.CHISELED_SMOOTH_PRISMARINE_CRYSTALS);
+                output.accept(ModBlocks.PRISMARINE_CRYSTAL_CHIMES);
+                output.accept(ModBlocks.SEA_GLASS);
+                output.accept(ModItems.SEA_TORCH);
+                output.accept(ModItems.PRISMARINE_SPYGLASS);
+                output.accept(ModBlocks.BUDDING_ECHO);
+                output.accept(ModBlocks.SMALL_ECHO_BUD);
+                output.accept(ModBlocks.MEDIUM_ECHO_BUD);
+                output.accept(ModBlocks.LARGE_ECHO_BUD);
+                output.accept(ModBlocks.ECHO_CLUSTER);
+                output.accept(ModBlocks.ECHO_BLOCK);
+                output.accept(ModBlocks.POLISHED_ECHO);
+                output.accept(ModBlocks.POLISHED_ECHO_SLAB);
+                output.accept(ModBlocks.POLISHED_ECHO_STAIRS);
+                output.accept(ModBlocks.POLISHED_ECHO_WALL);
+                output.accept(ModBlocks.POLISHED_ECHO_BRICKS);
+                output.accept(ModBlocks.POLISHED_ECHO_BRICK_SLAB);
+                output.accept(ModBlocks.POLISHED_ECHO_BRICK_STAIRS);
+                output.accept(ModBlocks.POLISHED_ECHO_BRICK_WALL);
+                output.accept(ModBlocks.CHISELED_POLISHED_ECHO);
+                output.accept(ModBlocks.SMOOTH_ECHO);
+                output.accept(ModBlocks.SMOOTH_ECHO_SLAB);
+                output.accept(ModBlocks.SMOOTH_ECHO_STAIRS);
+                output.accept(ModBlocks.SMOOTH_ECHO_WALL);
+                output.accept(ModBlocks.SMOOTH_ECHO_BRICKS);
+                output.accept(ModBlocks.SMOOTH_ECHO_BRICK_SLAB);
+                output.accept(ModBlocks.SMOOTH_ECHO_BRICK_STAIRS);
+                output.accept(ModBlocks.SMOOTH_ECHO_BRICK_WALL);
+                output.accept(ModBlocks.CHISELED_SMOOTH_ECHO);
+                output.accept(ModBlocks.ECHO_ROD);
+                output.accept(ModBlocks.CALIBRATED_ECHO_ROD);
+                output.accept(ModBlocks.ECHO_CHIMES);
+                output.accept(ModItems.RESONATING_ECHO_SHARD);
+                output.accept(ModItems.EXPERIENCE_FLASK);
+                output.accept(ModItems.ECHOING_GOAT_HORN);
+                output.accept(ModBlocks.QUARTZ_BRICK_SLAB);
+                output.accept(ModBlocks.QUARTZ_BRICK_STAIRS);
+                output.accept(ModBlocks.QUARTZ_WALL);
+                output.accept(ModBlocks.SMOOTH_QUARTZ_WALL);
+                output.accept(ModBlocks.QUARTZ_BRICK_WALL);
+                output.accept(ModBlocks.QUARTZ_CHIMES);
+                output.accept(ModBlocks.PRISMARINE_BRICK_WALL);
+                output.accept(ModBlocks.DARK_PRISMARINE_WALL);
+            })
+            .build();
+}

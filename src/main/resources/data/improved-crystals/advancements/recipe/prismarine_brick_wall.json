@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:prismarine_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "requirements": [
+      [
+        "has_item"
+      ]
+    ],
+    "rewards": {
+      "recipes": [
+        "improved-crystals:prismarine_brick_wall",
+        "improved-crystals:prismarine_brick_wall_from_stonecutter",
+        "improved-crystals:prismarine_brick_wall_from_stonecutter_from_bricks"
+      ]
+    }
+  }
+}

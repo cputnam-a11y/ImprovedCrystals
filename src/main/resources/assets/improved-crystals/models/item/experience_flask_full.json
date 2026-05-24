@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "improved-crystals:item/experience_flask_full"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "###",
+    "ooo"
+  ],
+  "key": {
+    "#": "minecraft:copper_ingot",
+    "o": "minecraft:quartz"
+  },
+  "result": {
+    "id": "improved-crystals:quartz_chimes"
+  }
+}

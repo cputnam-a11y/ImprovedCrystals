@@ -1,0 +1,37 @@
+{
+  "anvil_cost": 1,
+  "description": {
+    "translate": "enchantment.improved-crystals.sound_wave"
+  },
+  "effects": {
+    "minecraft:attributes": [
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 150,
+          "per_level_above_first": 150
+        },
+        "attribute": "improved-crystals:instrument_sound_range",
+        "id": "improved-crystals:enchantment.sound_wave",
+        "operation": "add_value"
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 21,
+    "per_level_above_first": 11
+  },
+  "max_level": 5,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 11
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": [
+    "improved-crystals:echoing_goat_horn",
+    "minecraft:goat_horn"
+  ],
+  "weight": 10
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "improved-crystals:polished_amethyst",
+  "result": {
+    "count": 1,
+    "id": "improved-crystals:polished_amethyst_wall"
+  }
+}

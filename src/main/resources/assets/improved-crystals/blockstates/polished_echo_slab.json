@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "improved-crystals:block/polished_echo_slab"
+    },
+    "type=double": {
+      "model": "improved-crystals:block/polished_echo"
+    },
+    "type=top": {
+      "model": "improved-crystals:block/polished_echo_slab_top"
+    }
+  }
+}

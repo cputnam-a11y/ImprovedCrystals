@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "axis=x,lit=false": {
+      "model": "improved-crystals:block/calibrated_echo_rod",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,lit=false": {
+      "model": "improved-crystals:block/calibrated_echo_rod"
+    },
+    "axis=z,lit=false": {
+      "model": "improved-crystals:block/calibrated_echo_rod",
+      "x": 90
+    },
+    "axis=x,lit=true": {
+      "model": "improved-crystals:block/calibrated_echo_rod_lit",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y,lit=true": {
+      "model": "improved-crystals:block/calibrated_echo_rod_lit"
+    },
+    "axis=z,lit=true": {
+      "model": "improved-crystals:block/calibrated_echo_rod_lit",
+      "x": 90
+    }
+  }
+}

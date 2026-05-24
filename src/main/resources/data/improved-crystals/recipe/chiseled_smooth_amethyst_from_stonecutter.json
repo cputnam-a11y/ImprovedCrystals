@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "improved-crystals:smooth_amethyst",
+  "result": {
+    "id": "improved-crystals:chiseled_smooth_amethyst"
+  }
+}

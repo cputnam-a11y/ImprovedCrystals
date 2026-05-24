@@ -1,0 +1,34 @@
+{
+  "anvil_cost": 1,
+  "description": {
+    "translate": "enchantment.improved-crystals.booming"
+  },
+  "effects": {
+    "minecraft:attributes": [
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 5,
+          "per_level_above_first": 5
+        },
+        "attribute": "improved-crystals:breath_power",
+        "id": "improved-crystals:enchantment.booming",
+        "operation": "add_value"
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 21,
+    "per_level_above_first": 11
+  },
+  "max_level": 5,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 11
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "improved-crystals:echoing_goat_horn",
+  "weight": 10
+}

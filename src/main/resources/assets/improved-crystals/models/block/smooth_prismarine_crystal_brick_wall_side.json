@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_side",
+  "textures": {
+    "wall": "improved-crystals:block/smooth_prismarine_crystal_bricks"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "improved-crystals:item/echoing_goat_horn"
+    },
+    "on_true": {
+      "type": "minecraft:model",
+      "model": "improved-crystals:item/tooting_echoing_goat_horn"
+    },
+    "property": "minecraft:using_item"
+  }
+}

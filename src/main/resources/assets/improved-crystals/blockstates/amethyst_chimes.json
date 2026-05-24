@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "improved-crystals:block/amethyst_chimes",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "improved-crystals:block/amethyst_chimes",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "improved-crystals:block/amethyst_chimes",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "improved-crystals:block/amethyst_chimes"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+	"required": true,
+	"package": "com.crystal.client.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"ExampleClientMixin",
+		"FluidRendererMixin",
+		"PlayerMixin",
+		"InstrumentItemMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

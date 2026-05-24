@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "improved-crystals:smooth_echo",
+  "result": {
+    "count": 2,
+    "id": "improved-crystals:smooth_echo_slab"
+  }
+}

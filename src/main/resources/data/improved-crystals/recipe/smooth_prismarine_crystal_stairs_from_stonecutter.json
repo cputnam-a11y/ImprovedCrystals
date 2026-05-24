@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "improved-crystals:smooth_prismarine_crystals",
+  "result": {
+    "count": 1,
+    "id": "improved-crystals:smooth_prismarine_crystal_stairs"
+  }
+}

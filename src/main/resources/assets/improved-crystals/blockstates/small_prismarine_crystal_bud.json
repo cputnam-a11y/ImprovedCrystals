@@ -1,0 +1,77 @@
+{
+  "variants": {
+    "face=ceiling,facing=east": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud",
+      "x": 180,
+      "y": 270
+    },
+    "face=ceiling,facing=north": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud",
+      "x": 180,
+      "y": 180
+    },
+    "face=ceiling,facing=south": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud",
+      "x": 180
+    },
+    "face=ceiling,facing=west": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud",
+      "x": 180,
+      "y": 90
+    },
+    "face=ceiling,facing=down": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud"
+    },
+    "face=ceiling,facing=up": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud"
+    },
+    "face=floor,facing=east": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud",
+      "y": 90
+    },
+    "face=floor,facing=north": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud"
+    },
+    "face=floor,facing=south": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud",
+      "y": 180
+    },
+    "face=floor,facing=west": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud",
+      "y": 270
+    },
+    "face=floor,facing=up": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud"
+    },
+    "face=floor,facing=down": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud"
+    },
+    "face=wall,facing=east": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud",
+      "x": 90,
+      "y": 90
+    },
+    "face=wall,facing=north": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud",
+      "x": 90
+    },
+    "face=wall,facing=south": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud",
+      "x": 90,
+      "y": 180
+    },
+    "face=wall,facing=west": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud",
+      "x": 90,
+      "y": 270
+    },
+    "face=wall,facing=down": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud",
+      "x": 180,
+      "y": 180
+    },
+    "face=wall,facing=up": {
+      "model": "improved-crystals:block/small_prismarine_crystal_bud"
+    }
+  }
+}
