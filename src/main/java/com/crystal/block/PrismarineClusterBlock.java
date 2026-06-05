@@ -1,12 +1,16 @@
 package com.crystal.block;
 
+import com.crystal.ImprovedCrystals;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.AttachFace;
@@ -57,8 +61,17 @@ public class PrismarineClusterBlock extends AmethystClusterBlock {
         return reader.getBlockState(blockpos).isFaceSturdy(reader, blockpos, direction.getOpposite());
     }
 
+    @Override
+    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess ticks, BlockPos pos, Direction directionToNeighbour, BlockPos neighbourPos, BlockState neighbourState, RandomSource random) {
+        if ((Boolean)state.getValue(WATERLOGGED)) {
+            ticks.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+        }
+
+        return directionToNeighbour == (getConnectedDirection(state)).getOpposite() && !state.canSurvive(level, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, level, ticks, pos, directionToNeighbour, neighbourPos, neighbourState, random);
+    }
+
     protected static Direction getConnectedDirection(BlockState state) {
-        switch ((AttachFace)state.getValue(FACE)) {
+        switch (state.getValue(FACE)) {
             case CEILING:
                 return Direction.DOWN;
             case FLOOR:

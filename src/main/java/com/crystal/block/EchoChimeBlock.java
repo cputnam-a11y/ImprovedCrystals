@@ -63,9 +63,13 @@ public class EchoChimeBlock extends ChimeBlock {
         {
             soundToPlay = SoundEvents.BEEHIVE_WORK;
         }
-        else if(block.is(ModTags.Blocks.ECHO_PISTON_NOISES))
+        else if(block.is(ModTags.Blocks.ECHO_PISTON_EXTEND_NOISES))
         {
             soundToPlay = SoundEvents.PISTON_EXTEND;
+        }
+        else if(block.is(ModTags.Blocks.ECHO_PISTON_RETRACT_NOISES))
+        {
+            soundToPlay = SoundEvents.PISTON_CONTRACT;
         }
         else if(block.is(ModTags.Blocks.ECHO_SOUL_NOISES))
         {
@@ -134,6 +138,38 @@ public class EchoChimeBlock extends ChimeBlock {
         else if(block.is(ModTags.Blocks.ECHO_WARPED_FOREST_MOOD_NOISES))
         {
             soundToPlay = SoundEvents.AMBIENT_WARPED_FOREST_MOOD.value();
+        }
+        else if(block.is(ModTags.Blocks.ECHO_DEAD_BUSH_NOISES))
+        {
+            soundToPlay = SoundEvents.DEAD_BUSH_IDLE;
+        }
+        else if(block.is(ModTags.Blocks.ECHO_EYEBLOSSOM_NOISES))
+        {
+            soundToPlay = SoundEvents.EYEBLOSSOM_IDLE;
+        }
+        else if(block.is(ModTags.Blocks.ECHO_PALE_MOSS_NOISES))
+        {
+            soundToPlay = SoundEvents.PALE_HANGING_MOSS_IDLE;
+        }
+        else if(block.is(ModTags.Blocks.ECHO_SAND_NOISES))
+        {
+            soundToPlay = SoundEvents.SAND_IDLE;
+        }
+        else if(block.is(ModTags.Blocks.ECHO_DRY_GRASS_NOISES))
+        {
+            soundToPlay = SoundEvents.DRY_GRASS;
+        }
+        else if(block.is(ModTags.Blocks.ECHO_INFESTED_BLOCK_NOISES))
+        {
+            soundToPlay = SoundEvents.SILVERFISH_STEP;
+        }
+        else if(block.is(ModTags.Blocks.ECHO_VILLAGER_NOISES))
+        {
+            soundToPlay = SoundEvents.VILLAGER_CELEBRATE;
+        }
+        else if(block.is(ModTags.Blocks.ECHO_COPPER_GOLEM_NOISES))
+        {
+            soundToPlay = SoundEvents.COPPER_GOLEM_OXIDIZED_DEATH;
         }
 
         return soundToPlay;

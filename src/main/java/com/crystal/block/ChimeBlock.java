@@ -77,7 +77,17 @@ public class ChimeBlock extends HorizontalDirectionalBlock implements SimpleWate
     }
 
     protected boolean mayPlaceOn(final BlockState state, final BlockGetter level, final BlockPos pos) {
-        return state.isFaceSturdy(level, pos, Direction.DOWN) || state.is(ModTags.Blocks.ADDITIONAL_CHIME_SUPPORT_BLOCKS) || state.getBlock() instanceof ChainBlock cb && state.getValue(cb.AXIS) == Direction.Axis.Y;
+        return state.isFaceSturdy(level, pos, Direction.DOWN) || state.is(ModTags.Blocks.ADDITIONAL_CHIME_SUPPORT_BLOCKS) || state.getBlock() instanceof ChainBlock cb && state.getValue(cb.AXIS) == Direction.Axis.Y || state.getBlock() instanceof EchoRodBlock er && state.getValue(er.AXIS) == Direction.Axis.Y || state.getBlock() instanceof CalibratedEchoRodBlock cer && state.getValue(cer.AXIS) == Direction.Axis.Y || getEndRodSupport(state);
+    }
+
+    private boolean getEndRodSupport(BlockState state)
+    {
+        if(state.getBlock() instanceof EndRodBlock erd)
+        {
+            return state.getValue(erd.FACING) == Direction.DOWN || state.getValue(erd.FACING) == Direction.UP;
+        }
+
+        return false;
     }
 
     @Override

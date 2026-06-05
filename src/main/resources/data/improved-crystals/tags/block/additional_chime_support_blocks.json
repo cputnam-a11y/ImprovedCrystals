@@ -13,6 +13,9 @@
     "#minecraft:lightning_rods",
     "minecraft:sniffer_egg",
     "#minecraft:flower_pots",
-    "minecraft:flower_pot"
+    "minecraft:flower_pot",
+    "minecraft:decorated_pot",
+    "#improved-crystals:glass_panes",
+    "#minecraft:copper_golem_statues"
   ]
 }

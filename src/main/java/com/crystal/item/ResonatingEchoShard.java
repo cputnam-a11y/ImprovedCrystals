@@ -60,9 +60,15 @@ public class ResonatingEchoShard extends Item {
 
     @Override
     public void appendHoverText(ItemStack itemStack, TooltipContext context, TooltipDisplay display, Consumer<Component> builder, TooltipFlag tooltipFlag) {
-        builder.accept(Component.translatable("item.improved-crystals.resonating_echo_shard.power_info", itemStack.get(DataComponents.BLOCK_STATE).get(BlockStateProperties.POWER)));
+        if(itemStack.get(DataComponents.BLOCK_STATE).get(BlockStateProperties.POWER) > 0)
+        {
+            builder.accept(Component.translatable("item.improved-crystals.resonating_echo_shard.power_info", itemStack.get(DataComponents.BLOCK_STATE).get(BlockStateProperties.POWER)));
+        }
         if(itemStack.get(ModItemDataComponenets.ITEM_USE_SOUND).entityType() != null) {
-            builder.accept(Component.translatable("item.improved-crystals.resonating_echo_shard.sound_info", itemStack.get(ModItemDataComponenets.ITEM_USE_SOUND).entityType().getDescription()));
+
+            String soundName = itemStack.get(ModItemDataComponenets.ITEM_USE_SOUND).soundEvent().location().getPath().replace("entity.", "").replace('.', ' ').replace("_", " ");
+
+            builder.accept(Component.translatable("item.improved-crystals.resonating_echo_shard.sound_info", soundName));
         }
     }
 

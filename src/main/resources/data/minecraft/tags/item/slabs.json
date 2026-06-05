@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "improved-crystals:smooth_amethyst_slab",
+    "improved-crystals:polished_amethyst_slab",
+    "improved-crystals:smooth_prismarine_crystal_slab",
+    "improved-crystals:polished_prismarine_crystal_slab",
+    "improved-crystals:smooth_echo_slab",
+    "improved-crystals:polished_echo_slab",
+    "improved-crystals:smooth_amethyst_brick_slab",
+    "improved-crystals:polished_amethyst_brick_slab",
+    "improved-crystals:smooth_prismarine_crystal_brick_slab",
+    "improved-crystals:polished_prismarine_crystal_brick_slab",
+    "improved-crystals:smooth_echo_brick_slab",
+    "improved-crystals:polished_echo_brick_slab",
+    "improved-crystals:quartz_brick_slab"
+  ]
+}

@@ -13,9 +13,16 @@
       }
     }
   },
+  "has_the_recipe": {
+    "conditions": {
+      "recipe": "improved-crystals:experience_flask"
+    },
+    "trigger": "minecraft:recipe_unlocked"
+  },
   "requirements": [
     [
-      "get_experience"
+      "get_experience",
+      "has_the_recipe"
     ]
   ],
   "rewards": {

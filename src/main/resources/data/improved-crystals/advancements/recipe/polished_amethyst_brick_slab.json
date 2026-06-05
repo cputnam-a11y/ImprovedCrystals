@@ -11,9 +11,16 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "improved-crystals:polished_amethyst_brick_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
     "requirements": [
       [
-        "has_item"
+        "has_item",
+        "has_the_recipe"
       ]
     ],
     "rewards": {

@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "improved-crystals:smooth_amethyst_wall",
+    "improved-crystals:polished_amethyst_wall",
+    "improved-crystals:smooth_prismarine_crystal_wall",
+    "improved-crystals:polished_prismarine_crystal_wall",
+    "improved-crystals:smooth_echo_wall",
+    "improved-crystals:polished_echo_wall",
+    "improved-crystals:smooth_amethyst_brick_wall",
+    "improved-crystals:polished_amethyst_brick_wall",
+    "improved-crystals:smooth_prismarine_crystal_brick_wall",
+    "improved-crystals:polished_prismarine_crystal_brick_wall",
+    "improved-crystals:smooth_echo_brick_wall",
+    "improved-crystals:polished_echo_brick_wall",
+    "improved-crystals:quartz_brick_wall",
+    "improved-crystals:quartz_wall",
+    "improved-crystals:smooth_quartz_wall",
+    "improved-crystals:prismarine_brick_wall",
+    "improved-crystals:dark_prismarine_wall"
+  ]
+}

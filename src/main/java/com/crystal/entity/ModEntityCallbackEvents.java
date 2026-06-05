@@ -8,32 +8,55 @@ import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.component.TypedDataComponent;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.entity.animal.allay.Allay;
+import net.minecraft.world.entity.animal.armadillo.Armadillo;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.entity.animal.bee.Bee;
+import net.minecraft.world.entity.animal.camel.Camel;
+import net.minecraft.world.entity.animal.camel.CamelHusk;
+import net.minecraft.world.entity.animal.chicken.Chicken;
+import net.minecraft.world.entity.animal.cow.Cow;
+import net.minecraft.world.entity.animal.dolphin.Dolphin;
+import net.minecraft.world.entity.animal.equine.Donkey;
+import net.minecraft.world.entity.animal.equine.Mule;
+import net.minecraft.world.entity.animal.equine.SkeletonHorse;
+import net.minecraft.world.entity.animal.feline.Cat;
+import net.minecraft.world.entity.animal.fox.Fox;
 import net.minecraft.world.entity.animal.goat.Goat;
+import net.minecraft.world.entity.animal.golem.CopperGolem;
+import net.minecraft.world.entity.animal.golem.CopperGolemState;
 import net.minecraft.world.entity.animal.golem.SnowGolem;
+import net.minecraft.world.entity.animal.happyghast.HappyGhast;
 import net.minecraft.world.entity.animal.panda.Panda;
+import net.minecraft.world.entity.animal.parrot.Parrot;
 import net.minecraft.world.entity.animal.pig.Pig;
 import net.minecraft.world.entity.animal.pig.PigSoundVariant;
+import net.minecraft.world.entity.animal.polarbear.PolarBear;
+import net.minecraft.world.entity.animal.sniffer.Sniffer;
 import net.minecraft.world.entity.animal.turtle.Turtle;
+import net.minecraft.world.entity.animal.wolf.Wolf;
+import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
+import net.minecraft.world.entity.boss.enderdragon.EnderDragonPart;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
-import net.minecraft.world.entity.monster.Blaze;
-import net.minecraft.world.entity.monster.Ravager;
-import net.minecraft.world.entity.monster.Vex;
-import net.minecraft.world.entity.monster.Witch;
+import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.monster.illager.Evoker;
 import net.minecraft.world.entity.monster.illager.Pillager;
 import net.minecraft.world.entity.monster.illager.Vindicator;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.skeleton.Bogged;
+import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.WeatheringCopper;
 
 import java.util.Random;
 
@@ -44,28 +67,29 @@ public class ModEntityCallbackEvents {
         UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
             Random random = new Random();
             ItemStack item = player.getItemInHand(hand);
-            if(entity instanceof Mob mob && !mob.is(EntityType.PLAYER))
-            {
-                if(item.is(Items.ECHO_SHARD) && !mob.isSilent()) {
-                    var rEchoShard = new ItemStack(ModItems.RESONATING_ECHO_SHARD);
-                    rEchoShard.set(ModItemDataComponenets.ITEM_USE_SOUND, new ItemUseSoundComponent(getMobSound(mob), mob.getType()));
+
+            if(item.is(Items.ECHO_SHARD) && !entity.isSilent()) {
+                var rEchoShard = new ItemStack(ModItems.RESONATING_ECHO_SHARD);
+                SoundEvent sound = getMobSound(entity);
+                if(sound != null) {
+                    rEchoShard.set(ModItemDataComponenets.ITEM_USE_SOUND, new ItemUseSoundComponent(sound, entity.getType()));
                     rEchoShard.applyComponents(item.getComponentsPatch());
-                    mob.setSilent(true);
+                    entity.setSilent(true);
                     item.shrink(1);
                     player.addItem(rEchoShard);
                     player.playSound(SoundEvents.AMETHYST_BLOCK_RESONATE, 1F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F);
                     return InteractionResult.SUCCESS;
                 }
-                else if(item.is(ModItems.RESONATING_ECHO_SHARD) && mob.isSilent() && item.get(ModItemDataComponenets.ITEM_USE_SOUND).entityType() != null && item.get(ModItemDataComponenets.ITEM_USE_SOUND).entityType() == mob.getType())
-                {
-                    item.shrink(1);
-                    mob.setSilent(false);
-                    ItemStack stack = new ItemStack(Items.ECHO_SHARD);
-                    stack.applyComponents(item.getComponentsPatch());
-                    player.addItem(stack);
-                    player.playSound(SoundEvents.AMETHYST_BLOCK_RESONATE, 1F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F);
-                    return InteractionResult.SUCCESS;
-                }
+            }
+            else if(item.is(ModItems.RESONATING_ECHO_SHARD) && entity.isSilent() && item.get(ModItemDataComponenets.ITEM_USE_SOUND).entityType() != null && item.get(ModItemDataComponenets.ITEM_USE_SOUND).entityType() == entity.getType())
+            {
+                item.shrink(1);
+                entity.setSilent(false);
+                ItemStack stack = new ItemStack(Items.ECHO_SHARD);
+                stack.applyComponents(item.getComponentsPatch());
+                player.addItem(stack);
+                player.playSound(SoundEvents.AMETHYST_BLOCK_RESONATE, 1F, (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F);
+                return InteractionResult.SUCCESS;
             }
 
             return InteractionResult.PASS;
@@ -78,7 +102,7 @@ public class ModEntityCallbackEvents {
     }
 
 
-    private static SoundEvent getMobSound(Mob mob)
+    private static SoundEvent getMobSound(Entity mob)
     {
         if(mob.is(EntityType.ALLAY))
         {
@@ -95,6 +119,13 @@ public class ModEntityCallbackEvents {
         }
         else if(mob.is(EntityType.ARMADILLO))
         {
+            Armadillo armadillo = (Armadillo) mob;
+
+            if(armadillo.isScared())
+            {
+                return SoundEvents.ARMADILLO_ROLL;
+            }
+
             return SoundEvents.ARMADILLO_AMBIENT;
         }
         else if(mob.is(EntityType.AXOLOTL))
@@ -116,23 +147,67 @@ public class ModEntityCallbackEvents {
         }
         else if(mob.is(EntityType.BAT))
         {
+            Bat bat = (Bat)mob;
+
+            if(bat.isResting())
+            {
+                return SoundEvents.BAT_TAKEOFF;
+            }
+
             return SoundEvents.BAT_AMBIENT;
         }
         else if(mob.is(EntityType.CAMEL))
         {
+            Camel camel = (Camel)mob;
+
+            if(camel.isDashing())
+            {
+                return SoundEvents.CAMEL_DASH;
+            }
+            else if(camel.isCamelSitting())
+            {
+                return SoundEvents.CAMEL_SIT;
+            }
+
             return SoundEvents.CAMEL_AMBIENT;
         }
         else if(mob.is(EntityType.CAMEL_HUSK))
         {
+            CamelHusk camelHusk = (CamelHusk)mob;
+
+            if(camelHusk.isDashing())
+            {
+                return SoundEvents.CAMEL_HUSK_DASH;
+            }
+            else if(camelHusk.isCamelSitting())
+            {
+                return SoundEvents.CAMEL_HUSK_SIT;
+            }
+
             return SoundEvents.CAMEL_HUSK_AMBIENT;
         }
         else if(mob.is(EntityType.CAT))
         {
-            return SoundEvents.CAT_SOUNDS.values().stream().findFirst().get().adultSounds().ambientSound().value();
+            Cat cat = (Cat) mob;
+
+            if(!cat.isBaby()) {
+                return cat.get(DataComponents.CAT_SOUND_VARIANT).value().adultSounds().ambientSound().value();
+            }
+            else
+            {
+                return cat.get(DataComponents.CAT_SOUND_VARIANT).value().babySounds().ambientSound().value();
+            }
         }
         else if(mob.is(EntityType.CHICKEN))
         {
-            return SoundEvents.CHICKEN_SOUNDS.values().stream().findFirst().get().adultSounds().ambientSound().value();
+            Chicken chicken = (Chicken) mob;
+            if(!chicken.isBaby()) {
+                return chicken.get(DataComponents.CHICKEN_SOUND_VARIANT).value().adultSounds().ambientSound().value();
+            }
+            else
+            {
+                return chicken.get(DataComponents.CHICKEN_SOUND_VARIANT).value().babySounds().ambientSound().value();
+            }
         }
         else if(mob.is(EntityType.COD))
         {
@@ -140,11 +215,40 @@ public class ModEntityCallbackEvents {
         }
         else if(mob.is(EntityType.COPPER_GOLEM))
         {
+            CopperGolem copperGolem = (CopperGolem) mob;
+
+            if(copperGolem.getState() == CopperGolemState.DROPPING_NO_ITEM)
+            {
+                return SoundEvents.COPPER_GOLEM_ITEM_NO_DROP;
+            }
+            else if(copperGolem.getState() == CopperGolemState.DROPPING_ITEM)
+            {
+                return SoundEvents.COPPER_GOLEM_ITEM_DROP;
+            }
+            else if(copperGolem.getState() == CopperGolemState.GETTING_ITEM)
+            {
+                return SoundEvents.COPPER_GOLEM_ITEM_GET;
+            }
+            else if(copperGolem.getState() == CopperGolemState.GETTING_NO_ITEM)
+            {
+                return SoundEvents.COPPER_GOLEM_ITEM_NO_GET;
+            }
+
+            if(copperGolem.getWeatherState() == WeatheringCopper.WeatherState.OXIDIZED)
+            {
+                return SoundEvents.COPPER_GOLEM_OXIDIZED_SPIN;
+            }
+            else if(copperGolem.getWeatherState() == WeatheringCopper.WeatherState.WEATHERED)
+            {
+                return SoundEvents.COPPER_GOLEM_WEATHERED_SPIN;
+            }
+
             return SoundEvents.COPPER_GOLEM_SPIN;
         }
         else if(mob.is(EntityType.COW))
         {
-            return SoundEvents.COW_SOUNDS.values().stream().findFirst().get().ambientSound().value();
+            Cow cow = (Cow)mob;
+            return cow.get(DataComponents.COW_SOUND_VARIANT).value().ambientSound().value();
         }
         else if(mob.is(EntityType.MOOSHROOM))
         {
@@ -152,6 +256,13 @@ public class ModEntityCallbackEvents {
         }
         else if(mob.is(EntityType.DONKEY))
         {
+            Donkey donkey = (Donkey) mob;
+
+            if(donkey.hasChest())
+            {
+                return SoundEvents.DONKEY_CHEST;
+            }
+
             return SoundEvents.DONKEY_AMBIENT;
         }
         else if(mob.is(EntityType.FROG))
@@ -164,6 +275,12 @@ public class ModEntityCallbackEvents {
         }
         else if(mob.is(EntityType.HAPPY_GHAST))
         {
+            HappyGhast happyGhast = (HappyGhast) mob;
+            if(happyGhast.isBaby())
+            {
+                return SoundEvents.GHASTLING_AMBIENT;
+            }
+
             return SoundEvents.HAPPY_GHAST_AMBIENT;
         }
         else if(mob.is(EntityType.HORSE))
@@ -172,6 +289,13 @@ public class ModEntityCallbackEvents {
         }
         else if(mob.is(EntityType.MULE))
         {
+            Mule mule = (Mule) mob;
+
+            if(mule.hasChest())
+            {
+                return SoundEvents.MULE_CHEST;
+            }
+
             return SoundEvents.MULE_AMBIENT;
         }
         else if(mob.is(EntityType.OCELOT))
@@ -180,11 +304,19 @@ public class ModEntityCallbackEvents {
         }
         else if(mob.is(EntityType.PARROT))
         {
-            return SoundEvents.PARROT_AMBIENT;
+            Parrot parrot = (Parrot) mob;
+            return parrot.getAmbientSound();
         }
         else if(mob.is(EntityType.PIG))
         {
-            return SoundEvents.PIG_SOUNDS.values().stream().findFirst().get().adultSounds().ambientSound().value();
+            Pig pig = (Pig) mob;
+            if(!pig.isBaby()) {
+                return pig.get(DataComponents.PIG_SOUND_VARIANT).value().adultSounds().ambientSound().value();
+            }
+            else
+            {
+                return pig.get(DataComponents.PIG_SOUND_VARIANT).value().babySounds().ambientSound().value();
+            }
         }
         else if(mob.is(EntityType.RABBIT))
         {
@@ -200,10 +332,22 @@ public class ModEntityCallbackEvents {
         }
         else if(mob.is(EntityType.SKELETON_HORSE))
         {
+            if(mob.isUnderWater())
+            {
+                return SoundEvents.SKELETON_HORSE_GALLOP_WATER;
+            }
+
             return SoundEvents.SKELETON_HORSE_AMBIENT;
         }
         else if(mob.is(EntityType.SNIFFER))
         {
+            Sniffer sniffer = (Sniffer)mob;
+
+            if(sniffer.isSearching())
+            {
+                return SoundEvents.SNIFFER_SEARCHING;
+            }
+
             return SoundEvents.SNIFFER_IDLE;
         }
         else if(mob.is(EntityType.SNOW_GOLEM))
@@ -281,6 +425,21 @@ public class ModEntityCallbackEvents {
         }
         else if(mob.is(EntityType.DOLPHIN))
         {
+            Dolphin dolphin = (Dolphin) mob;
+
+            if(dolphin.gotFish())
+            {
+                return SoundEvents.DOLPHIN_EAT;
+            }
+            else if(dolphin.getMoistnessLevel() <= 0)
+            {
+                return SoundEvents.DOLPHIN_HURT;
+            }
+            else if(dolphin.isUnderWater())
+            {
+                return SoundEvents.DOLPHIN_AMBIENT_WATER;
+            }
+
             return SoundEvents.DOLPHIN_AMBIENT;
         }
         else if(mob.is(EntityType.DROWNED))
@@ -289,10 +448,52 @@ public class ModEntityCallbackEvents {
         }
         else if(mob.is(EntityType.ENDERMAN))
         {
+            EnderMan enderman = (EnderMan) mob;
+
+            if(enderman.isCreepy())
+            {
+                return SoundEvents.ENDERMAN_SCREAM;
+            }
+            if(enderman.getCarriedBlock() != null)
+            {
+                return SoundEvents.ENDERMAN_TELEPORT;
+            }
+
             return SoundEvents.ENDERMAN_AMBIENT;
         }
         else if(mob.is(EntityType.FOX))
         {
+            Fox fox = (Fox)mob;
+
+            if(fox.isPouncing())
+            {
+                return SoundEvents.FOX_SCREECH;
+            }
+            else if(fox.isInterested())
+            {
+                return SoundEvents.FOX_SNIFF;
+            }
+            else if(fox.isSleeping())
+            {
+                return SoundEvents.FOX_SLEEP;
+            }
+            else if(fox.isSitting())
+            {
+                return SoundEvents.FOX_EAT;
+            }
+            else if(fox.isCrouching())
+            {
+                return SoundEvents.FOX_AGGRO;
+            }
+            else if(fox.isFullyCrouched())
+            {
+                return SoundEvents.FOX_BITE;
+            }
+            else if(fox.isFaceplanted())
+            {
+                return SoundEvents.FOX_TELEPORT;
+            }
+
             return SoundEvents.FOX_AMBIENT;
         }
         else if(mob.is(EntityType.GOAT))
@@ -364,6 +565,17 @@ public class ModEntityCallbackEvents {
         }
         else if(mob.is(EntityType.POLAR_BEAR))
         {
+            PolarBear polarBear = (PolarBear)mob;
+
+            if(polarBear.isStanding())
+            {
+                return SoundEvents.POLAR_BEAR_WARNING;
+            }
+            else if(polarBear.isBaby())
+            {
+                return SoundEvents.POLAR_BEAR_AMBIENT_BABY;
+            }
+
             return SoundEvents.POLAR_BEAR_AMBIENT;
         }
         else if(mob.is(EntityType.PUFFERFISH))
@@ -372,7 +584,14 @@ public class ModEntityCallbackEvents {
         }
         else if(mob.is(EntityType.WOLF))
         {
-            return SoundEvents.WOLF_SOUNDS.values().stream().findFirst().get().adultSounds().ambientSound().value();
+            Wolf wolf = (Wolf) mob;
+            if(!wolf.isBaby()) {
+                return wolf.get(DataComponents.WOLF_SOUND_VARIANT).value().adultSounds().ambientSound().value();
+            }
+            else
+            {
+                return wolf.get(DataComponents.WOLF_SOUND_VARIANT).value().babySounds().ambientSound().value();
+            }
         }
         else if(mob.is(EntityType.ZOMBIE_NAUTILUS))
         {
@@ -420,6 +639,11 @@ public class ModEntityCallbackEvents {
         }
         else if(mob.is(EntityType.ELDER_GUARDIAN))
         {
+            if(!mob.isUnderWater())
+            {
+                return SoundEvents.ELDER_GUARDIAN_FLOP;
+            }
+
             return SoundEvents.ELDER_GUARDIAN_CURSE;
         }
         else if(mob.is(EntityType.ENDERMITE))
@@ -444,10 +668,22 @@ public class ModEntityCallbackEvents {
         }
         else if(mob.is(EntityType.GHAST))
         {
+            Ghast ghast = (Ghast)mob;
+
+            if(ghast.isCharging())
+            {
+                return SoundEvents.GHAST_SCREAM;
+            }
+
             return SoundEvents.GHAST_AMBIENT;
         }
         else if(mob.is(EntityType.GUARDIAN))
         {
+            if(!mob.isUnderWater())
+            {
+                return SoundEvents.GUARDIAN_FLOP;
+            }
+
             return SoundEvents.GUARDIAN_AMBIENT;
         }
         else if(mob.is(EntityType.HOGLIN))
@@ -587,13 +823,23 @@ public class ModEntityCallbackEvents {
         {
             return SoundEvents.ZOMBIE_VILLAGER_AMBIENT;
         }
-        else if(mob.is(EntityType.ENDER_DRAGON))
+        else if(mob instanceof EnderDragonPart)
         {
             return SoundEvents.ENDER_DRAGON_GROWL;
         }
         else if(mob.is(EntityType.WITHER))
         {
-            return SoundEvents.WITHER_SPAWN;
+            WitherBoss wither = (WitherBoss) mob;
+            if(wither.getInvulnerableTicks() > 0)
+            {
+                return SoundEvents.WITHER_SPAWN;
+            }
+            else if(wither.isPowered())
+            {
+                return SoundEvents.WITHER_HURT;
+            }
+
+            return SoundEvents.WITHER_AMBIENT;
         }
         else if(mob.is(EntityType.ILLUSIONER))
         {

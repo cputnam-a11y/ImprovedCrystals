@@ -1,0 +1,7 @@
+{
+  "replace": true,
+  "values": [
+    "minecraft:potted_open_eyeblossom",
+    "minecraft:potted_closed_eyeblossom"
+  ]
+}
