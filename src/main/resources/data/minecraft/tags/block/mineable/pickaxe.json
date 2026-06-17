@@ -79,6 +79,7 @@
     "improved-crystals:quartz_wall",
     "improved-crystals:smooth_quartz_wall",
     "improved-crystals:prismarine_brick_wall",
-    "improved-crystals:dark_prismarine_wall"
+    "improved-crystals:dark_prismarine_wall",
+    "#improved-crystals:infested_blocks"
   ]
 }

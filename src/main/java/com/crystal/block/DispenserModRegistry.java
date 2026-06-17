@@ -25,7 +25,7 @@ public class DispenserModRegistry {
                 if(dispensed.getDamageValue() >= 0 && dispensed.getDamageValue() < dispensed.getMaxDamage())
                 {
                     ServerLevel level = source.level();
-                    ExperienceOrb.award(level, source.pos().getCenter(), 1);
+                    ExperienceOrb.award(level, source.center(), 1);
                     dispensed.setDamageValue(dispensed.getDamageValue() + 1);
                     return dispensed;
                 }
@@ -49,6 +49,8 @@ public class DispenserModRegistry {
                 return super.execute(source, dispensed);
             }
         });
+
+        DispenserBlock.registerProjectileBehavior(ModItems.SILVERFISH_EGG);
     }
 
 }

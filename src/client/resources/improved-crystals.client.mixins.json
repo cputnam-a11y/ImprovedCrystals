@@ -4,9 +4,7 @@
 	"compatibilityLevel": "JAVA_25",
 	"client": [
 		"ExampleClientMixin",
-		"FluidRendererMixin",
-		"PlayerMixin",
-		"InstrumentItemMixin"
+		"FluidRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "stained_sea_glass",
+  "pattern": [
+    "GGG",
+    "GDG",
+    "GGG"
+  ],
+  "key": {
+    "G": "improved-crystals:sea_glass",
+    "D": "minecraft:black_dye"
+  },
+  "result": {
+    "count": 8,
+    "id": "improved-crystals:black_stained_sea_glass"
+  }
+}

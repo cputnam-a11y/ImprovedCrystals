@@ -12,10 +12,9 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.animal.armadillo.Armadillo;
@@ -48,6 +47,7 @@ import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragonPart;
 import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.*;
+import net.minecraft.world.entity.monster.cubemob.SulfurCube;
 import net.minecraft.world.entity.monster.illager.Evoker;
 import net.minecraft.world.entity.monster.illager.Pillager;
 import net.minecraft.world.entity.monster.illager.Vindicator;
@@ -104,7 +104,7 @@ public class ModEntityCallbackEvents {
 
     private static SoundEvent getMobSound(Entity mob)
     {
-        if(mob.is(EntityType.ALLAY))
+        if(mob.is(EntityTypes.ALLAY))
         {
             Allay allay = (Allay) mob;
 
@@ -117,7 +117,7 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.ALLAY_AMBIENT_WITHOUT_ITEM;
             }
         }
-        else if(mob.is(EntityType.ARMADILLO))
+        else if(mob.is(EntityTypes.ARMADILLO))
         {
             Armadillo armadillo = (Armadillo) mob;
 
@@ -128,7 +128,7 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.ARMADILLO_AMBIENT;
         }
-        else if(mob.is(EntityType.AXOLOTL))
+        else if(mob.is(EntityTypes.AXOLOTL))
         {
             Axolotl axolotl = (Axolotl) mob;
 
@@ -145,7 +145,7 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.AXOLOTL_IDLE_AIR;
             }
         }
-        else if(mob.is(EntityType.BAT))
+        else if(mob.is(EntityTypes.BAT))
         {
             Bat bat = (Bat)mob;
 
@@ -156,7 +156,7 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.BAT_AMBIENT;
         }
-        else if(mob.is(EntityType.CAMEL))
+        else if(mob.is(EntityTypes.CAMEL))
         {
             Camel camel = (Camel)mob;
 
@@ -171,7 +171,7 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.CAMEL_AMBIENT;
         }
-        else if(mob.is(EntityType.CAMEL_HUSK))
+        else if(mob.is(EntityTypes.CAMEL_HUSK))
         {
             CamelHusk camelHusk = (CamelHusk)mob;
 
@@ -186,7 +186,7 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.CAMEL_HUSK_AMBIENT;
         }
-        else if(mob.is(EntityType.CAT))
+        else if(mob.is(EntityTypes.CAT))
         {
             Cat cat = (Cat) mob;
 
@@ -198,7 +198,7 @@ public class ModEntityCallbackEvents {
                 return cat.get(DataComponents.CAT_SOUND_VARIANT).value().babySounds().ambientSound().value();
             }
         }
-        else if(mob.is(EntityType.CHICKEN))
+        else if(mob.is(EntityTypes.CHICKEN))
         {
             Chicken chicken = (Chicken) mob;
             if(!chicken.isBaby()) {
@@ -209,11 +209,11 @@ public class ModEntityCallbackEvents {
                 return chicken.get(DataComponents.CHICKEN_SOUND_VARIANT).value().babySounds().ambientSound().value();
             }
         }
-        else if(mob.is(EntityType.COD))
+        else if(mob.is(EntityTypes.COD))
         {
             return SoundEvents.COD_FLOP;
         }
-        else if(mob.is(EntityType.COPPER_GOLEM))
+        else if(mob.is(EntityTypes.COPPER_GOLEM))
         {
             CopperGolem copperGolem = (CopperGolem) mob;
 
@@ -245,16 +245,16 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.COPPER_GOLEM_SPIN;
         }
-        else if(mob.is(EntityType.COW))
+        else if(mob.is(EntityTypes.COW))
         {
             Cow cow = (Cow)mob;
             return cow.get(DataComponents.COW_SOUND_VARIANT).value().ambientSound().value();
         }
-        else if(mob.is(EntityType.MOOSHROOM))
+        else if(mob.is(EntityTypes.MOOSHROOM))
         {
             return SoundEvents.MOOSHROOM_MILK;
         }
-        else if(mob.is(EntityType.DONKEY))
+        else if(mob.is(EntityTypes.DONKEY))
         {
             Donkey donkey = (Donkey) mob;
 
@@ -265,15 +265,15 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.DONKEY_AMBIENT;
         }
-        else if(mob.is(EntityType.FROG))
+        else if(mob.is(EntityTypes.FROG))
         {
             return SoundEvents.FROG_AMBIENT;
         }
-        else if(mob.is(EntityType.GLOW_SQUID))
+        else if(mob.is(EntityTypes.GLOW_SQUID))
         {
             return SoundEvents.GLOW_SQUID_AMBIENT;
         }
-        else if(mob.is(EntityType.HAPPY_GHAST))
+        else if(mob.is(EntityTypes.HAPPY_GHAST))
         {
             HappyGhast happyGhast = (HappyGhast) mob;
             if(happyGhast.isBaby())
@@ -283,11 +283,11 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.HAPPY_GHAST_AMBIENT;
         }
-        else if(mob.is(EntityType.HORSE))
+        else if(mob.is(EntityTypes.HORSE))
         {
             return SoundEvents.HORSE_AMBIENT;
         }
-        else if(mob.is(EntityType.MULE))
+        else if(mob.is(EntityTypes.MULE))
         {
             Mule mule = (Mule) mob;
 
@@ -298,16 +298,16 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.MULE_AMBIENT;
         }
-        else if(mob.is(EntityType.OCELOT))
+        else if(mob.is(EntityTypes.OCELOT))
         {
             return SoundEvents.OCELOT_AMBIENT;
         }
-        else if(mob.is(EntityType.PARROT))
+        else if(mob.is(EntityTypes.PARROT))
         {
             Parrot parrot = (Parrot) mob;
             return parrot.getAmbientSound();
         }
-        else if(mob.is(EntityType.PIG))
+        else if(mob.is(EntityTypes.PIG))
         {
             Pig pig = (Pig) mob;
             if(!pig.isBaby()) {
@@ -318,19 +318,19 @@ public class ModEntityCallbackEvents {
                 return pig.get(DataComponents.PIG_SOUND_VARIANT).value().babySounds().ambientSound().value();
             }
         }
-        else if(mob.is(EntityType.RABBIT))
+        else if(mob.is(EntityTypes.RABBIT))
         {
             return SoundEvents.RABBIT_AMBIENT;
         }
-        else if(mob.is(EntityType.SALMON))
+        else if(mob.is(EntityTypes.SALMON))
         {
             return SoundEvents.SALMON_FLOP;
         }
-        else if(mob.is(EntityType.SHEEP))
+        else if(mob.is(EntityTypes.SHEEP))
         {
             return SoundEvents.SHEEP_AMBIENT;
         }
-        else if(mob.is(EntityType.SKELETON_HORSE))
+        else if(mob.is(EntityTypes.SKELETON_HORSE))
         {
             if(mob.isUnderWater())
             {
@@ -339,7 +339,7 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.SKELETON_HORSE_AMBIENT;
         }
-        else if(mob.is(EntityType.SNIFFER))
+        else if(mob.is(EntityTypes.SNIFFER))
         {
             Sniffer sniffer = (Sniffer)mob;
 
@@ -350,7 +350,7 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.SNIFFER_IDLE;
         }
-        else if(mob.is(EntityType.SNOW_GOLEM))
+        else if(mob.is(EntityTypes.SNOW_GOLEM))
         {
             var snowGolem = (SnowGolem)mob;
 
@@ -362,23 +362,23 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.SNOW_GOLEM_SHEAR;
             }
         }
-        else if(mob.is(EntityType.SQUID))
+        else if(mob.is(EntityTypes.SQUID))
         {
             return SoundEvents.SQUID_AMBIENT;
         }
-        else if(mob.is(EntityType.STRIDER))
+        else if(mob.is(EntityTypes.STRIDER))
         {
             return SoundEvents.STRIDER_AMBIENT;
         }
-        else if(mob.is(EntityType.TADPOLE))
+        else if(mob.is(EntityTypes.TADPOLE))
         {
             return SoundEvents.TADPOLE_FLOP;
         }
-        else if(mob.is(EntityType.TROPICAL_FISH))
+        else if(mob.is(EntityTypes.TROPICAL_FISH))
         {
             return SoundEvents.TROPICAL_FISH_FLOP;
         }
-        else if(mob.is(EntityType.TURTLE))
+        else if(mob.is(EntityTypes.TURTLE))
         {
             Turtle turtle = (Turtle) mob;
 
@@ -390,19 +390,19 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.TURTLE_AMBIENT_LAND;
             }
         }
-        else if(mob.is(EntityType.VILLAGER))
+        else if(mob.is(EntityTypes.VILLAGER))
         {
             return SoundEvents.VILLAGER_AMBIENT;
         }
-        else if(mob.is(EntityType.WANDERING_TRADER))
+        else if(mob.is(EntityTypes.WANDERING_TRADER))
         {
             return SoundEvents.WANDERING_TRADER_AMBIENT;
         }
-        else if(mob.is(EntityType.ZOMBIE_HORSE))
+        else if(mob.is(EntityTypes.ZOMBIE_HORSE))
         {
             return SoundEvents.ZOMBIE_HORSE_AMBIENT;
         }
-        else if(mob.is(EntityType.BEE))
+        else if(mob.is(EntityTypes.BEE))
         {
             Bee bee = (Bee)mob;
 
@@ -415,15 +415,15 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.BEE_LOOP;
             }
         }
-        else if(mob.is(EntityType.SPIDER))
+        else if(mob.is(EntityTypes.SPIDER))
         {
             return SoundEvents.SPIDER_AMBIENT;
         }
-        else if(mob.is(EntityType.CAVE_SPIDER))
+        else if(mob.is(EntityTypes.CAVE_SPIDER))
         {
             return SoundEvents.SPIDER_HURT;
         }
-        else if(mob.is(EntityType.DOLPHIN))
+        else if(mob.is(EntityTypes.DOLPHIN))
         {
             Dolphin dolphin = (Dolphin) mob;
 
@@ -442,11 +442,11 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.DOLPHIN_AMBIENT;
         }
-        else if(mob.is(EntityType.DROWNED))
+        else if(mob.is(EntityTypes.DROWNED))
         {
             return SoundEvents.DROWNED_AMBIENT;
         }
-        else if(mob.is(EntityType.ENDERMAN))
+        else if(mob.is(EntityTypes.ENDERMAN))
         {
             EnderMan enderman = (EnderMan) mob;
 
@@ -461,7 +461,7 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.ENDERMAN_AMBIENT;
         }
-        else if(mob.is(EntityType.FOX))
+        else if(mob.is(EntityTypes.FOX))
         {
             Fox fox = (Fox)mob;
 
@@ -496,7 +496,7 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.FOX_AMBIENT;
         }
-        else if(mob.is(EntityType.GOAT))
+        else if(mob.is(EntityTypes.GOAT))
         {
             Goat goat = (Goat)mob;
 
@@ -509,23 +509,23 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.GOAT_AMBIENT;
             }
         }
-        else if(mob.is(EntityType.IRON_GOLEM))
+        else if(mob.is(EntityTypes.IRON_GOLEM))
         {
             return SoundEvents.IRON_GOLEM_STEP;
         }
-        else if(mob.is(EntityType.LLAMA))
+        else if(mob.is(EntityTypes.LLAMA))
         {
             return SoundEvents.LLAMA_AMBIENT;
         }
-        else if(mob.is(EntityType.TRADER_LLAMA))
+        else if(mob.is(EntityTypes.TRADER_LLAMA))
         {
             return SoundEvents.LLAMA_SPIT;
         }
-        else if(mob.is(EntityType.NAUTILUS))
+        else if(mob.is(EntityTypes.NAUTILUS))
         {
             return SoundEvents.NAUTILUS_AMBIENT;
         }
-        else if(mob.is(EntityType.PANDA))
+        else if(mob.is(EntityTypes.PANDA))
         {
             Panda panda = (Panda) mob;
 
@@ -550,7 +550,7 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.PANDA_AMBIENT;
             }
         }
-        else if(mob.is(EntityType.PIGLIN))
+        else if(mob.is(EntityTypes.PIGLIN))
         {
             Piglin piglin = (Piglin) mob;
 
@@ -563,7 +563,7 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.PIGLIN_AMBIENT;
             }
         }
-        else if(mob.is(EntityType.POLAR_BEAR))
+        else if(mob.is(EntityTypes.POLAR_BEAR))
         {
             PolarBear polarBear = (PolarBear)mob;
 
@@ -578,11 +578,11 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.POLAR_BEAR_AMBIENT;
         }
-        else if(mob.is(EntityType.PUFFERFISH))
+        else if(mob.is(EntityTypes.PUFFERFISH))
         {
             return SoundEvents.PUFFER_FISH_BLOW_UP;
         }
-        else if(mob.is(EntityType.WOLF))
+        else if(mob.is(EntityTypes.WOLF))
         {
             Wolf wolf = (Wolf) mob;
             if(!wolf.isBaby()) {
@@ -593,15 +593,15 @@ public class ModEntityCallbackEvents {
                 return wolf.get(DataComponents.WOLF_SOUND_VARIANT).value().babySounds().ambientSound().value();
             }
         }
-        else if(mob.is(EntityType.ZOMBIE_NAUTILUS))
+        else if(mob.is(EntityTypes.ZOMBIE_NAUTILUS))
         {
             return SoundEvents.ZOMBIE_NAUTILUS_AMBIENT;
         }
-        else if(mob.is(EntityType.ZOMBIFIED_PIGLIN))
+        else if(mob.is(EntityTypes.ZOMBIFIED_PIGLIN))
         {
             return SoundEvents.ZOMBIFIED_PIGLIN_AMBIENT;
         }
-        else if(mob.is(EntityType.BLAZE))
+        else if(mob.is(EntityTypes.BLAZE))
         {
             Blaze blaze = (Blaze)mob;
             if(blaze.isOnFire())
@@ -612,7 +612,7 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.BLAZE_AMBIENT;
             }
         }
-        else if(mob.is(EntityType.BOGGED))
+        else if(mob.is(EntityTypes.BOGGED))
         {
             Bogged bogged = (Bogged) mob;
 
@@ -625,19 +625,19 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.BOGGED_AMBIENT;
             }
         }
-        else if(mob.is(EntityType.BREEZE))
+        else if(mob.is(EntityTypes.BREEZE))
         {
             return SoundEvents.BREEZE_WHIRL;
         }
-        else if(mob.is(EntityType.CREAKING))
+        else if(mob.is(EntityTypes.CREAKING))
         {
             return SoundEvents.CREAKING_AMBIENT;
         }
-        else if(mob.is(EntityType.CREEPER))
+        else if(mob.is(EntityTypes.CREEPER))
         {
             return SoundEvents.CREEPER_PRIMED;
         }
-        else if(mob.is(EntityType.ELDER_GUARDIAN))
+        else if(mob.is(EntityTypes.ELDER_GUARDIAN))
         {
             if(!mob.isUnderWater())
             {
@@ -646,11 +646,11 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.ELDER_GUARDIAN_CURSE;
         }
-        else if(mob.is(EntityType.ENDERMITE))
+        else if(mob.is(EntityTypes.ENDERMITE))
         {
             return SoundEvents.ENDERMITE_AMBIENT;
         }
-        else if(mob.is(EntityType.EVOKER))
+        else if(mob.is(EntityTypes.EVOKER))
         {
             Evoker evoker = (Evoker)mob;
 
@@ -666,7 +666,7 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.EVOKER_AMBIENT;
             }
         }
-        else if(mob.is(EntityType.GHAST))
+        else if(mob.is(EntityTypes.GHAST))
         {
             Ghast ghast = (Ghast)mob;
 
@@ -677,7 +677,7 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.GHAST_AMBIENT;
         }
-        else if(mob.is(EntityType.GUARDIAN))
+        else if(mob.is(EntityTypes.GUARDIAN))
         {
             if(!mob.isUnderWater())
             {
@@ -686,31 +686,31 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.GUARDIAN_AMBIENT;
         }
-        else if(mob.is(EntityType.HOGLIN))
+        else if(mob.is(EntityTypes.HOGLIN))
         {
             return SoundEvents.HOGLIN_AMBIENT;
         }
-        else if(mob.is(EntityType.HUSK))
+        else if(mob.is(EntityTypes.HUSK))
         {
             return SoundEvents.HUSK_AMBIENT;
         }
-        else if(mob.is(EntityType.MAGMA_CUBE))
+        else if(mob.is(EntityTypes.MAGMA_CUBE))
         {
             return SoundEvents.MAGMA_CUBE_SQUISH;
         }
-        else if(mob.is(EntityType.PARCHED))
+        else if(mob.is(EntityTypes.PARCHED))
         {
             return SoundEvents.PARCHED_AMBIENT;
         }
-        else if(mob.is(EntityType.PHANTOM))
+        else if(mob.is(EntityTypes.PHANTOM))
         {
             return SoundEvents.PHANTOM_AMBIENT;
         }
-        else if(mob.is(EntityType.PIGLIN_BRUTE))
+        else if(mob.is(EntityTypes.PIGLIN_BRUTE))
         {
             return SoundEvents.PIGLIN_BRUTE_AMBIENT;
         }
-        else if(mob.is(EntityType.PILLAGER))
+        else if(mob.is(EntityTypes.PILLAGER))
         {
             Pillager pillager = (Pillager) mob;
 
@@ -726,7 +726,7 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.PILLAGER_AMBIENT;
             }
         }
-        else if(mob.is(EntityType.RAVAGER))
+        else if(mob.is(EntityTypes.RAVAGER))
         {
             Ravager ravager = (Ravager) mob;
 
@@ -746,27 +746,27 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.RAVAGER_AMBIENT;
             }
         }
-        else if(mob.is(EntityType.SHULKER))
+        else if(mob.is(EntityTypes.SHULKER))
         {
             return SoundEvents.SHULKER_AMBIENT;
         }
-        else if(mob.is(EntityType.SILVERFISH))
+        else if(mob.is(EntityTypes.SILVERFISH))
         {
             return SoundEvents.SILVERFISH_AMBIENT;
         }
-        else if(mob.is(EntityType.SKELETON))
+        else if(mob.is(EntityTypes.SKELETON))
         {
             return SoundEvents.SKELETON_AMBIENT;
         }
-        else if(mob.is(EntityType.SLIME))
+        else if(mob.is(EntityTypes.SLIME))
         {
             return SoundEvents.SLIME_SQUISH;
         }
-        else if(mob.is(EntityType.STRAY))
+        else if(mob.is(EntityTypes.STRAY))
         {
             return SoundEvents.STRAY_AMBIENT;
         }
-        else if(mob.is(EntityType.VEX))
+        else if(mob.is(EntityTypes.VEX))
         {
             Vex vex = (Vex)mob;
 
@@ -779,7 +779,7 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.VEX_AMBIENT;
             }
         }
-        else if(mob.is(EntityType.VINDICATOR))
+        else if(mob.is(EntityTypes.VINDICATOR))
         {
             Vindicator vindicator = (Vindicator) mob;
 
@@ -791,11 +791,11 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.VINDICATOR_AMBIENT;
             }
         }
-        else if(mob.is(EntityType.WARDEN))
+        else if(mob.is(EntityTypes.WARDEN))
         {
             return SoundEvents.WARDEN_AMBIENT;
         }
-        else if(mob.is(EntityType.WITCH))
+        else if(mob.is(EntityTypes.WITCH))
         {
             Witch witch = (Witch) mob;
 
@@ -807,19 +807,19 @@ public class ModEntityCallbackEvents {
                 return SoundEvents.WITCH_AMBIENT;
             }
         }
-        else if(mob.is(EntityType.WITHER_SKELETON))
+        else if(mob.is(EntityTypes.WITHER_SKELETON))
         {
             return SoundEvents.WITHER_SKELETON_AMBIENT;
         }
-        else if(mob.is(EntityType.ZOGLIN))
+        else if(mob.is(EntityTypes.ZOGLIN))
         {
             return SoundEvents.ZOGLIN_AMBIENT;
         }
-        else if(mob.is(EntityType.ZOMBIE) || mob.is(EntityType.GIANT))
+        else if(mob.is(EntityTypes.ZOMBIE) || mob.is(EntityTypes.GIANT))
         {
             return SoundEvents.ZOMBIE_AMBIENT;
         }
-        else if(mob.is(EntityType.ZOMBIE_VILLAGER))
+        else if(mob.is(EntityTypes.ZOMBIE_VILLAGER))
         {
             return SoundEvents.ZOMBIE_VILLAGER_AMBIENT;
         }
@@ -827,7 +827,7 @@ public class ModEntityCallbackEvents {
         {
             return SoundEvents.ENDER_DRAGON_GROWL;
         }
-        else if(mob.is(EntityType.WITHER))
+        else if(mob.is(EntityTypes.WITHER))
         {
             WitherBoss wither = (WitherBoss) mob;
             if(wither.getInvulnerableTicks() > 0)
@@ -841,9 +841,72 @@ public class ModEntityCallbackEvents {
 
             return SoundEvents.WITHER_AMBIENT;
         }
-        else if(mob.is(EntityType.ILLUSIONER))
+        else if(mob.is(EntityTypes.ILLUSIONER))
         {
             return SoundEvents.ILLUSIONER_AMBIENT;
+        }
+        else if(mob.is(EntityTypes.SULFUR_CUBE))
+        {
+            SulfurCube sulfurCube = (SulfurCube) mob;
+
+            if(sulfurCube.hasBodyItem())
+            {
+                if(sulfurCube.isPrimed())
+                {
+                    return SoundEvents.SULFUR_CUBE_EXPLOSIVE_PUSH.value();
+                }
+
+                if(sulfurCube.getItemBySlot(EquipmentSlot.BODY).is(ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_FLAT))
+                {
+                    return SoundEvents.SULFUR_CUBE_FAST_FLAT_HIT.value();
+                }
+                else if(sulfurCube.getItemBySlot(EquipmentSlot.BODY).is(ItemTags.SULFUR_CUBE_ARCHETYPE_BOUNCY))
+                {
+                    return SoundEvents.SULFUR_CUBE_BOUNCY_HIT.value();
+                }
+                else if(sulfurCube.getItemBySlot(EquipmentSlot.BODY).is(ItemTags.SULFUR_CUBE_ARCHETYPE_EXPLOSIVE))
+                {
+                    return SoundEvents.SULFUR_CUBE_EXPLOSIVE_HIT.value();
+                }
+                else if(sulfurCube.getItemBySlot(EquipmentSlot.BODY).is(ItemTags.SULFUR_CUBE_ARCHETYPE_HOT))
+                {
+                    return SoundEvents.SULFUR_CUBE_HOT_HIT.value();
+                }
+                else if(sulfurCube.getItemBySlot(EquipmentSlot.BODY).is(ItemTags.SULFUR_CUBE_ARCHETYPE_LIGHT))
+                {
+                    return SoundEvents.SULFUR_CUBE_LIGHT_HIT.value();
+                }
+                else if(sulfurCube.getItemBySlot(EquipmentSlot.BODY).is(ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_SLIDING))
+                {
+                    return SoundEvents.SULFUR_CUBE_FAST_SLIDING_HIT.value();
+                }
+                else if(sulfurCube.getItemBySlot(EquipmentSlot.BODY).is(ItemTags.SULFUR_CUBE_ARCHETYPE_HIGH_RESISTANCE))
+                {
+                    return SoundEvents.SULFUR_CUBE_HIGH_RESISTANCE_HIT.value();
+                }
+                else if(sulfurCube.getItemBySlot(EquipmentSlot.BODY).is(ItemTags.SULFUR_CUBE_ARCHETYPE_REGULAR))
+                {
+                    return SoundEvents.SULFUR_CUBE_REGULAR_HIT.value();
+                }
+                else if(sulfurCube.getItemBySlot(EquipmentSlot.BODY).is(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_BOUNCY))
+                {
+                    return SoundEvents.SULFUR_CUBE_SLOW_BOUNCY_HIT.value();
+                }
+                else if(sulfurCube.getItemBySlot(EquipmentSlot.BODY).is(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_FLAT))
+                {
+                    return SoundEvents.SULFUR_CUBE_SLOW_FLAT_HIT.value();
+                }
+                else if(sulfurCube.getItemBySlot(EquipmentSlot.BODY).is(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_SLIDING))
+                {
+                    return SoundEvents.SULFUR_CUBE_SLOW_SLIDING_HIT.value();
+                }
+                else if(sulfurCube.getItemBySlot(EquipmentSlot.BODY).is(ItemTags.SULFUR_CUBE_ARCHETYPE_STICKY))
+                {
+                    return SoundEvents.SULFUR_CUBE_STICKY_HIT.value();
+                }
+            }
+
+            return SoundEvents.SULFUR_CUBE_SQUISH;
         }
 
 

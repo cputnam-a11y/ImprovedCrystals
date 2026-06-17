@@ -1,0 +1,26 @@
+{
+  "replace": true,
+  "values": [
+    "minecraft:infested_cobblestone",
+    "minecraft:infested_deepslate",
+    "minecraft:infested_stone",
+    "minecraft:infested_stone_bricks",
+    "minecraft:infested_chiseled_stone_bricks",
+    "minecraft:infested_mossy_stone_bricks",
+    "minecraft:infested_cracked_stone_bricks",
+    "improved-crystals:infested_smooth_stone",
+    "improved-crystals:infested_mossy_cobblestone",
+    "improved-crystals:infested_cobbled_deepslate",
+    "improved-crystals:infested_chiseled_deepslate",
+    "improved-crystals:infested_polished_deepslate",
+    "improved-crystals:infested_deepslate_bricks",
+    "improved-crystals:infested_deepslate_tiles",
+    "improved-crystals:infested_cracked_deepslate_bricks",
+    "improved-crystals:infested_cracked_deepslate_tiles",
+    "improved-crystals:infested_blackstone",
+    "improved-crystals:infested_polished_blackstone",
+    "improved-crystals:infested_chiseled_polished_blackstone",
+    "improved-crystals:infested_polished_blackstone_bricks",
+    "improved-crystals:infested_cracked_polished_blackstone_bricks"
+  ]
+}

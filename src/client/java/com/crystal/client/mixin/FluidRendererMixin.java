@@ -3,6 +3,7 @@ package com.crystal.client.mixin;
 import com.crystal.ImprovedCrystals;
 import com.crystal.block.ModBlocks;
 import com.crystal.item.ModItems;
+import com.crystal.util.ModTags;
 import net.minecraft.client.renderer.block.BlockAndTintGetter;
 import net.minecraft.client.renderer.block.FluidRenderer;
 import net.minecraft.core.BlockPos;
@@ -22,7 +23,7 @@ public class FluidRendererMixin {
     @Inject(method = "isFaceOccludedByNeighbor", at = @At("HEAD"), cancellable = true)
     private static void isFaceOccludedByNeighbor(final Direction direction, final float height, final BlockState neighborState, CallbackInfoReturnable info)
     {
-        if(neighborState.is(ModBlocks.SEA_GLASS))
+        if(neighborState.is(ModTags.Blocks.SEA_GLASS_BLOCKS))
         {
             info.setReturnValue(true);
         }

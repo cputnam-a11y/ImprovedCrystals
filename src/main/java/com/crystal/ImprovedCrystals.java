@@ -5,6 +5,9 @@ import com.crystal.block.DispenserModRegistry;
 import com.crystal.block.ModBlocks;
 import com.crystal.block.entities.ModBlockEntityTypes;
 import com.crystal.entity.ModEntityCallbackEvents;
+import com.crystal.entity.ModEntityTypes;
+import com.crystal.gamerules.ModGameRules;
+import com.crystal.item.ModFuelItems;
 import com.crystal.item.ModItems;
 import com.crystal.ui.ModCreativeInventory;
 import net.fabricmc.api.ModInitializer;
@@ -45,10 +48,13 @@ public class ImprovedCrystals implements ModInitializer {
 		// Proceed with mild caution.
 		ModBlocks.initialize();
 		ModItems.initialize();
+		ModEntityTypes.registerModEntityTypes();
 		Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ModCreativeInventory.IMPROVED_CRYSTALS_TAB_KEY, ModCreativeInventory.IMPROVED_CRYSTALS_TAB);
 		ModBlockEntityTypes.initalize();
 		ModAttributes.initialize();
 		DispenserModRegistry.register();
 		ModEntityCallbackEvents.register();
+		ModGameRules.register();
+		ModFuelItems.initialize();
 	}
 }

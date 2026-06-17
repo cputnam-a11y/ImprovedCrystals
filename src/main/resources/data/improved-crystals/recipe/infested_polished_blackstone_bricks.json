@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "infested_blocks",
+  "ingredients": [
+    "minecraft:polished_blackstone_bricks",
+    "improved-crystals:silverfish_egg"
+  ],
+  "result": {
+    "count": 1,
+    "id": "improved-crystals:infested_polished_blackstone_bricks"
+  }
+}

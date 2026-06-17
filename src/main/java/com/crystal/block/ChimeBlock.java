@@ -9,9 +9,13 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -37,14 +41,16 @@ public class ChimeBlock extends HorizontalDirectionalBlock implements SimpleWate
 
     private final Map<Direction, VoxelShape> SHAPES;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     private final SoundEvent ambientSound;
     private final SoundEvent interactSound;
+
     public ChimeBlock(Properties properties, SoundEvent ambientSound, SoundEvent interactSound) {
         super(properties);
         SHAPES = Shapes.rotateAll(Block.column(13, 2, 4, 16));
         this.ambientSound = ambientSound;
         this.interactSound = interactSound;
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false).setValue(POWERED, false));
     }
 
     @Override
@@ -54,19 +60,40 @@ public class ChimeBlock extends HorizontalDirectionalBlock implements SimpleWate
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if(random.nextInt(24) == 0)
+        if(random.nextInt(24) == 0 && !state.getValue(POWERED))
         {
             level.playLocalSound((double)pos.getX() + (double)0.5F, (double)pos.getY() + (double)0.5F, (double)pos.getZ() + (double)0.5F, ambientSound, SoundSource.BLOCKS, 1.0F + random.nextFloat(), random.nextFloat() * 0.7F + 0.3F, false);
         }
     }
 
+    protected void neighborChanged(final BlockState state, final Level level, final BlockPos pos, final Block block, final @Nullable Orientation orientation, final boolean movedByPiston) {
+        boolean signal = level.hasNeighborSignal(pos);
+        if (signal != (Boolean)state.getValue(POWERED)) {
+            if (signal) {
+                playInteractSound(level, pos);
+            }
+
+            level.setBlock(pos, (BlockState)state.setValue(POWERED, signal), 3);
+        }
+
+    }
+
+    protected void onProjectileHit(final Level level, final BlockState state, final BlockHitResult hitResult, final Projectile projectile) {
+        ImprovedCrystals.LOGGER.info("Hit!");
+        playInteractSound(level, hitResult.getBlockPos());
+        super.onProjectileHit(level, state, hitResult, projectile);
+    }
+
+    protected void playInteractSound(Level level, BlockPos pos)
+    {
+        RandomSource random = level.getRandom();
+        level.playSound(null, pos, interactSound, SoundSource.BLOCKS, 1.0F + random.nextFloat(), random.nextFloat() * 0.7F + 0.3F);
+    }
+
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
 
-        RandomSource random = level.getRandom();
-
-        level.playLocalSound((double) pos.getX() + (double) 0.5F, (double) pos.getY() + (double) 0.5F, (double) pos.getZ() + (double) 0.5F, interactSound, SoundSource.BLOCKS, 1.0F + random.nextFloat(), random.nextFloat() * 0.7F + 0.3F, false);
-
+        playInteractSound(level, pos);
         return InteractionResult.SUCCESS;
     }
 
@@ -103,6 +130,7 @@ public class ChimeBlock extends HorizontalDirectionalBlock implements SimpleWate
     protected void createBlockStateDefinition(final StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
         builder.add(WATERLOGGED);
+        builder.add(POWERED);
     }
 
     @Override

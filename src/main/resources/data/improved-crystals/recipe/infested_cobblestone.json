@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "infested_blocks",
+  "ingredients": [
+    "minecraft:cobblestone",
+    "improved-crystals:silverfish_egg"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:infested_cobblestone"
+  }
+}

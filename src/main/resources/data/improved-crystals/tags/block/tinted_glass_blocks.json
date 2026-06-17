@@ -1,0 +1,22 @@
+{
+  "replace": true,
+  "values": [
+    "minecraft:tinted_glass",
+    "improved-crystals:white_stained_tinted_glass",
+    "improved-crystals:black_stained_tinted_glass",
+    "improved-crystals:blue_stained_tinted_glass",
+    "improved-crystals:brown_stained_tinted_glass",
+    "improved-crystals:pink_stained_tinted_glass",
+    "improved-crystals:light_blue_stained_tinted_glass",
+    "improved-crystals:yellow_stained_tinted_glass",
+    "improved-crystals:purple_stained_tinted_glass",
+    "improved-crystals:magenta_stained_tinted_glass",
+    "improved-crystals:orange_stained_tinted_glass",
+    "improved-crystals:cyan_stained_tinted_glass",
+    "improved-crystals:gray_stained_tinted_glass",
+    "improved-crystals:green_stained_tinted_glass",
+    "improved-crystals:light_gray_stained_tinted_glass",
+    "improved-crystals:lime_stained_tinted_glass",
+    "improved-crystals:red_stained_tinted_glass"
+  ]
+}

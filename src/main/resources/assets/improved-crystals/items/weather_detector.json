@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "improved-crystals:block/weather_detector_clear"
+  }
+}

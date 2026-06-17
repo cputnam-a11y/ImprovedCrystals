@@ -25,7 +25,7 @@ public class EchoChimeBlock extends ChimeBlock {
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         var aboveBlock = level.getBlockState(pos.above());
 
-        if(random.nextInt(24) == 0)
+        if(random.nextInt(24) == 0 && !state.getValue(POWERED))
         {
             level.playLocalSound((double)pos.getX() + (double)0.5F, (double)pos.getY() + (double)0.5F, (double)pos.getZ() + (double)0.5F, getSoundToPlay(aboveBlock), SoundSource.BLOCKS, 1.0F + random.nextFloat(), random.nextFloat() * 0.7F + 0.3F, false);
         }

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "G": "minecraft:glass",
+    "P": "minecraft:prismarine_crystals",
+    "W": "#minecraft:wooden_slabs"
+  },
+  "pattern": [
+    "GGG",
+    "PPP",
+    "WWW"
+  ],
+  "result": {
+    "id": "improved-crystals:weather_detector"
+  }
+}
+

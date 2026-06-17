@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "stained_tinted_glass",
+  "pattern": [
+    "GGG",
+    "GDG",
+    "GGG"
+  ],
+  "key": {
+    "G": "minecraft:tinted_glass",
+    "D": "minecraft:light_blue_dye"
+  },
+  "result": {
+    "count": 8,
+    "id": "improved-crystals:light_blue_stained_tinted_glass"
+  }
+}

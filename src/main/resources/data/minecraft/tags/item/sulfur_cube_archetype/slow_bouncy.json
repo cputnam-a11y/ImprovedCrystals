@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "improved-crystals:smooth_amethyst",
+    "improved-crystals:chiseled_smooth_amethyst",
+    "improved-crystals:smooth_amethyst_bricks",
+    "improved-crystals:smooth_echo",
+    "improved-crystals:chiseled_smooth_echo",
+    "improved-crystals:smooth_echo_bricks",
+    "improved-crystals:smooth_prismarine_crystals",
+    "improved-crystals:chiseled_smooth_prismarine_crystals",
+    "improved-crystals:smooth_prismarine_crystal_bricks",
+    "improved-crystals:prismarine_crystal_block",
+    "improved-crystals:echo_block"
+  ]
+}

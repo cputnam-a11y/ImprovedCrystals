@@ -1,0 +1,76 @@
+{
+  "variants": {
+    "in_snow_biome=false,in_hot_biome=false,in_valid_biome=false,weather_detection_cycle=clear": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "in_snow_biome=false,in_hot_biome=false,in_valid_biome=false,weather_detection_cycle=rain": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "in_snow_biome=false,in_hot_biome=false,in_valid_biome=false,weather_detection_cycle=thunder": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "in_snow_biome=false,in_hot_biome=false,in_valid_biome=true,weather_detection_cycle=clear": {
+      "model": "improved-crystals:block/weather_detector_clear"
+    },
+    "in_snow_biome=false,in_hot_biome=false,in_valid_biome=true,weather_detection_cycle=rain": {
+      "model": "improved-crystals:block/weather_detector_rain"
+    },
+    "in_snow_biome=false,in_hot_biome=false,in_valid_biome=true,weather_detection_cycle=thunder": {
+      "model": "improved-crystals:block/weather_detector_thunder"
+    },
+    "in_snow_biome=false,in_hot_biome=true,in_valid_biome=true,weather_detection_cycle=clear": {
+      "model": "improved-crystals:block/weather_detector_clear"
+    },
+    "in_snow_biome=false,in_hot_biome=true,in_valid_biome=true,weather_detection_cycle=rain": {
+      "model": "improved-crystals:block/weather_detector_clear_rain"
+    },
+    "in_snow_biome=false,in_hot_biome=true,in_valid_biome=true,weather_detection_cycle=thunder": {
+      "model": "improved-crystals:block/weather_detector_clear_thunder"
+    },
+    "in_snow_biome=true,in_hot_biome=false,in_valid_biome=true,weather_detection_cycle=clear": {
+      "model": "improved-crystals:block/weather_detector_clear"
+    },
+    "in_snow_biome=true,in_hot_biome=false,in_valid_biome=true,weather_detection_cycle=rain": {
+      "model": "improved-crystals:block/weather_detector_snowy"
+    },
+    "in_snow_biome=true,in_hot_biome=false,in_valid_biome=true,weather_detection_cycle=thunder": {
+      "model": "improved-crystals:block/weather_detector_snowy_thunder"
+    },
+    "in_snow_biome=true,in_hot_biome=true,in_valid_biome=true,weather_detection_cycle=clear": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "in_snow_biome=true,in_hot_biome=true,in_valid_biome=true,weather_detection_cycle=rain": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "in_snow_biome=true,in_hot_biome=true,in_valid_biome=true,weather_detection_cycle=thunder": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "in_snow_biome=true,in_hot_biome=false,in_valid_biome=false,weather_detection_cycle=clear": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "in_snow_biome=true,in_hot_biome=false,in_valid_biome=false,weather_detection_cycle=rain": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "in_snow_biome=true,in_hot_biome=false,in_valid_biome=false,weather_detection_cycle=thunder": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "in_snow_biome=false,in_hot_biome=true,in_valid_biome=false,weather_detection_cycle=clear": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "in_snow_biome=false,in_hot_biome=true,in_valid_biome=false,weather_detection_cycle=rain": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "in_snow_biome=false,in_hot_biome=true,in_valid_biome=false,weather_detection_cycle=thunder": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "in_snow_biome=true,in_hot_biome=true,in_valid_biome=false,weather_detection_cycle=clear": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "in_snow_biome=true,in_hot_biome=true,in_valid_biome=false,weather_detection_cycle=rain": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "in_snow_biome=true,in_hot_biome=true,in_valid_biome=false,weather_detection_cycle=thunder": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    }
+  }
+}

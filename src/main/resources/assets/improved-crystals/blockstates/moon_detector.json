@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "moon_phase=full_moon,in_valid_dimension=false": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "moon_phase=waning_gibbous,in_valid_dimension=false": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "moon_phase=third_quarter,in_valid_dimension=false": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "moon_phase=waning_crescent,in_valid_dimension=false": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "moon_phase=new_moon,in_valid_dimension=false": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "moon_phase=waxing_crescent,in_valid_dimension=false": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "moon_phase=first_quarter,in_valid_dimension=false": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "moon_phase=waxing_gibbous,in_valid_dimension=false": {
+      "model": "improved-crystals:block/weather_detector_invalid"
+    },
+    "moon_phase=full_moon,in_valid_dimension=true": {
+      "model": "improved-crystals:block/moon_detector_full_moon"
+    },
+    "moon_phase=waning_gibbous,in_valid_dimension=true": {
+      "model": "improved-crystals:block/moon_detector_waning_gibbous"
+    },
+    "moon_phase=third_quarter,in_valid_dimension=true": {
+      "model": "improved-crystals:block/moon_detector_third_quarter"
+    },
+    "moon_phase=waning_crescent,in_valid_dimension=true": {
+      "model": "improved-crystals:block/moon_detector_waning_crescent"
+    },
+    "moon_phase=new_moon,in_valid_dimension=true": {
+      "model": "improved-crystals:block/moon_detector_new_moon"
+    },
+    "moon_phase=waxing_crescent,in_valid_dimension=true": {
+      "model": "improved-crystals:block/moon_detector_waxing_crescent"
+    },
+    "moon_phase=first_quarter,in_valid_dimension=true": {
+      "model": "improved-crystals:block/moon_detector_first_quarter"
+    },
+    "moon_phase=waxing_gibbous,in_valid_dimension=true": {
+      "model": "improved-crystals:block/moon_detector_waxing_gibbous"
+    }
+  }
+}

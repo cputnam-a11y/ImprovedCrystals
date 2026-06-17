@@ -30,6 +30,7 @@ public class ModItems {
     public static final Item SEA_TORCH = register("sea_torch", createWallBlockItem(ModBlocks.SEA_TORCH, ModBlocks.SEA_WALL_TORCH), new Item.Properties());
     public static final Item EXPERIENCE_FLASK = register("experience_flask", ExpFlaskItem::new, new Item.Properties().durability(1395).component(DataComponents.DAMAGE, 1395).rarity(Rarity.UNCOMMON));
     public static final Item ECHOING_GOAT_HORN = register("echoing_goat_horn", EchoingGoatHornItem::new, new Item.Properties().rarity(Rarity.UNCOMMON).durability(192).repairable(Items.ECHO_SHARD).enchantable(22).delayedComponent(DataComponents.INSTRUMENT, (context) -> new InstrumentComponent(context.getOrThrow(Instruments.PONDER_GOAT_HORN))));
+    public static final Item SILVERFISH_EGG = register("silverfish_egg", SilverfishEggItem::new, new Item.Properties().stacksTo(16));
 
     public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
         // Create the item key.

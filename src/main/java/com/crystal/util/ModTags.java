@@ -45,6 +45,7 @@ public class ModTags {
         public static final TagKey<Block> ECHO_WARPED_FOREST_MOOD_NOISES = createTag("echo_warped_forest_mood_noises");
         public static final TagKey<Block> ECHO_VILLAGER_NOISES = createTag("echo_villager_noises");
         public static final TagKey<Block> ECHO_COPPER_GOLEM_NOISES = createTag("echo_copper_golem_noises");
+        public static final TagKey<Block> SEA_GLASS_BLOCKS = createTag("sea_glass_blocks");
 
 
         private static TagKey<Block> createTag(String name)
